@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+    <!--让监听器生效-->
+    <listeners>
+        <listener class-name="com.framework.listener.TestResultListener"/>
+        <listener class-name="com.framework.listener.GlobalAnnotationTransformer"></listener>
+    </listeners>
+
+    <test name="线程1-chrome">
+        <parameter name="browserType" value="chrome"></parameter>
+        <classes>
+            <class name="com.framework.testcases.TestCart"/>
+        </classes>
+    </test>
+
+    <test name="线程2-Firefox">
+        <parameter name="browserType" value="Firefox"></parameter>
+        <classes>
+            <class name="com.framework.testcases.TestCart"/>
+        </classes>
+    </test>
+</suite>
